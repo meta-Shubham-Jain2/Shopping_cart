@@ -30,6 +30,9 @@
 .productCard {
   display: inline-flex;
 }
+.navigationlink {
+  margin-right: 10px;
+}
 
 @keyframes App-logo-spin {
   from {

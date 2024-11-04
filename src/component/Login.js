@@ -1,17 +1,65 @@
 
 // Login.js:
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { toast } from "react-toastify";
 
 function Login() {
-  const [email, setEmail] = useState('');
+  const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Login attempted with:', { email, password });
-    // Here you would typically send a request to your server
+  useEffect(()=>{
+    sessionStorage.clear();
+        },[]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+        if (validate()) {
+            ///implentation
+            // console.log('proceed');
+            fetch("http://localhost:8000/user/" + username).then((res) => {
+                return res.json();
+            }).then((resp) => {
+                //console.log(resp)
+                if (Object.keys(resp).length === 0) {
+                    toast.error('Please Enter valid username');
+                } else {
+                    if (resp.password === password) {
+                        toast.success('Success');
+                        sessionStorage.setItem('username',username);
+                        // sessionStorage.setItem('userrole',resp.role);
+                        usenavigate('/')
+                    }else{
+                        toast.error('Please Enter valid credentials');
+                    }
+                }
+            }).catch((err) => {
+                toast.error('Login Failed due to :' + err.message);
+            });
+        }
   };
+    
+  const validate = () => {
+    let result = true;
+    if (username === '' || username === null) {
+        result = false;
+        toast.warning('Please Enter Username');
+    }
+    if (password === '' || password === null) {
+        result = false;
+        toast.warning('Please Enter Password');
+    }
+    return result;
+}
+
+ 
+
+  const usenavigate=useNavigate();
+
+  useEffect(()=>{
+sessionStorage.clear();
+  },[]);
 
   return (
     <Container>
@@ -22,10 +70,10 @@ function Login() {
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="User Name"
+                value={username}
+                onChange={(e) => setUserName(e.target.value)}
               />
             </Form.Group>
 

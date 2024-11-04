@@ -29,6 +29,9 @@ const Body = () => {
         <Card.Text>
         {product.description}
         </Card.Text>
+        <Card.Text style={{textDecoration:'bold'}}>Rs.
+        {product.price}
+        </Card.Text>
         <Button variant="primary">Buy Now</Button>
       </Card.Body>
     </Card> 

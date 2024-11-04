@@ -23,6 +23,9 @@ const ProductCard = () => {
         <Card.Text>
         {product.description}
         </Card.Text>
+        <Card.Text>
+        {product.price}
+        </Card.Text>
         <Button variant="primary">Buy Now</Button>
       </Card.Body>
     </Card> 

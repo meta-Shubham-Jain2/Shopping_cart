@@ -67,5 +67,21 @@
         "https://i.dummyjson.com/data/products/3/1.jpg"
       ]
     }
+  ],
+  "user": [
+    {
+      "id": "adminuser",
+      "name": "Nihira",
+      "password": "admin",
+      "email": "nihiratechiees@gmail.com",
+      "phone": "8989898989"
+    },
+    {
+      "id": "Shubham",
+      "name": "Shubham Jain",
+      "password": "Shubham",
+      "email": "shubham@gmail.com",
+      "contact": "12312312"
+    }
   ]
 }
