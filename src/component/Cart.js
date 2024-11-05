@@ -128,41 +128,14 @@ const Cart = () => {
                 </div>
 
                 <p className="text-start text-md-center">
-                  <strong>$17.99</strong>
+                  <strong>Rs.17.99</strong>
                 </p>
               </MDBCol>
             </MDBRow>
           </MDBCardBody>
         </MDBCard>
 
-        <MDBCard className="mb-4">
-          <MDBCardBody>
-            <p>
-              <strong>Expected shipping delivery</strong>
-            </p>
-            <p className="mb-0">12.10.2020 - 14.10.2020</p>
-          </MDBCardBody>
-        </MDBCard>
-
-        <MDBCard className="mb-4 mb-lg-0">
-          <MDBCardBody>
-            <p>
-              <strong>We accept</strong>
-            </p>
-            <MDBCardImage className="me-2" width="45px"
-              src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-              alt="Visa" />
-            <MDBCardImage className="me-2" width="45px"
-              src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-              alt="American Express" />
-            <MDBCardImage className="me-2" width="45px"
-              src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-              alt="Mastercard" />
-            <MDBCardImage className="me-2" width="45px"
-              src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
-              alt="PayPal acceptance mark" />
-          </MDBCardBody>
-        </MDBCard>
+       
       </MDBCol>
       <MDBCol md="4">
         <MDBCard className="mb-4">

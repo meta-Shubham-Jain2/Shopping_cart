@@ -11,7 +11,7 @@ const NavbarHeader = () => {
         <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-        {sessionStorage.getItem('username') !== '' ? (<Navbar.Text className='navigationlink'>
+        {sessionStorage.getItem('username') !== null ? (<Navbar.Text className='navigationlink'>
             <Link to= "/login">logout</Link>
           </Navbar.Text> ):(<Navbar.Text className='navigationlink'>
             <Link to= "/register">Register</Link>

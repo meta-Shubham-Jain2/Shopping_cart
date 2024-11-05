@@ -2,10 +2,16 @@ import React ,{useEffect,useState}from 'react'
 import NavbarHeader from './NavbarHeader'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useSelector,useDispatch } from 'react-redux';
+import { addToCart } from "../features/cartSlice";
 // import ProductCard from './ProductCard'
 
 const Body = () => {
 
+  const items = useSelector((state) => state.allCart.items);
+  
+
+  const dispatch = useDispatch();
   const [products,setProducts] = useState([]);
 
   useEffect(() => {
@@ -13,7 +19,6 @@ const Body = () => {
       .then((res) => res.json())
       .then((result) => {
         setProducts(result);
-        console.log("---->",)
       });
   }, []);
 
@@ -32,7 +37,7 @@ const Body = () => {
         <Card.Text style={{textDecoration:'bold'}}>Rs.
         {product.price}
         </Card.Text>
-        <Button variant="primary">Buy Now</Button>
+        <Button onClick={() => dispatch(addToCart(product))} variant="primary">Add To Cart</Button>
       </Card.Body>
     </Card> 
     ))}
